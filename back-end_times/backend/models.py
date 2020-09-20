@@ -32,7 +32,7 @@ if __name__ == "__main__":
     t2 = Time(nome="Real Madrid", treinador="Zinedine Zidane", 
         estadio="Santiago Bernabeu", capitao="Sergio Ramos")
     t3 = Time(nome="Chelsea", treinador="Frank Lampard", 
-        estadio="Stamford Bridge", capitao="César Azpilicueta")
+        estadio="Stamford Bridge", capitao="Cesar Azpilicueta")
     t4 = Time(nome="Bayern Munchen", treinador="Hans-Dieter Flick", 
         estadio="Allianz Arena", capitao="Manuel Neuer")
     t5 = Time(nome="Juventus", treinador="Maurizio Sarri", 
