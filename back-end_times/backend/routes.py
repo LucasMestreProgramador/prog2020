@@ -13,3 +13,11 @@ def listar_times():
     resposta = jsonify(times_json)
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
+
+@app.route("/incluir_time", methods=['post'])
+def incluir_time():
+    dados = request.get_json()
+    novo_time = Time(**dados) 
+    db.session.add(novo_time)
+    db.session.commit()
+    return {"resultado" : "ok"}

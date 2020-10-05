@@ -15,7 +15,7 @@ $( document ).ready(function() {
         });
 
         function listar_times(resposta) {   
-            // esse linhas = "" 
+            // esse - linhas = "" 
 
             for (var i in resposta) {
                 lin = "<tr>" + 
@@ -29,9 +29,9 @@ $( document ).ready(function() {
 
                 };
 
-                // esse linhas = linhas + lin;
+                // esse - linhas = linhas + lin;
 
-                // esse $("#corpo_tabela_times").html(linhas);
+                // esse - $("#corpo_tabela_times").html(linhas);
 
                 $("#conteudoInicial").addClass("invisible");
 
@@ -41,6 +41,43 @@ $( document ).ready(function() {
    
         }
 
+    });
+
+    $("#btn_incluir_time").click(function(){ 
+        
+        nome_time = $("#nome_time").val();
+        treinador_time = $("#treinador_time").val();
+        estadio_time = $("#estadio_time").val();
+        capitao_time = $("#capitao_time").val();
+
+        dados = JSON.stringify({nome: nome_time, treinador: treinador_time, estadio: estadio_time, capitao: capitao_time})
+
+        $.ajax({
+            url: "http://localhost:5000/incluir_time",
+            type: "POST",
+            contentType: "application/json",
+            dataType: "json",
+            data: dados,
+            success: incluirTime,
+            error: erroIncluirTime
+        });
+        function incluirTime(resposta) {
+            if (resposta.resultado == "ok") {
+
+            alert("Time incluido com sucesso!");
+
+            $("#nome_time").val("");
+            $("#treinador_time").val("");
+            $("#estadio_time").val("");
+            $("#capitao_time").val("");
+
+            } else {
+                alert("Erro na comunicação!");
+            }
+        }
+        function erroIncluirTime(resposta) {
+            alert("Deu ruim na chamada ao back-end! :(");
+        }
     });
 
   });
