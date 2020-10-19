@@ -21,3 +21,14 @@ def incluir_time():
     db.session.add(novo_time)
     db.session.commit()
     return {"resultado" : "ok"}
+
+@app.route("/excluir_time/<int:time_id>", methods=['DELETE']) 
+def excluir_time(time_id): 
+    resposta = jsonify({"resultado": "ok", "detalhes": "ok"}) 
+    try: 
+        Time.query.filter(Time.id == time_id).delete() 
+        db.session.commit() 
+    except Exception as e: 
+        resposta = jsonify({"resultado":"erro", "detalhes":str(e)}) 
+    resposta.headers.add("Access-Control-Allow-Origin", "*") 
+    return resposta

@@ -18,11 +18,15 @@ $( document ).ready(function() {
             // esse - linhas = "" 
 
             for (var i in resposta) {
-                lin = "<tr>" + 
+                lin = '<tr id="linha_'+resposta[i].id+'">' + 
                     "<td>" + resposta[i].nome + "</td>" +
                     "<td>" + resposta[i].treinador + "</td>" +
                     "<td>" + resposta[i].estadio + "</td>" +
                     "<td>" + resposta[i].capitao + "</td>" +
+                    '<td><a href=# id="excluir_' + resposta[i].id + '" ' + 
+                        'class="excluir_time"><img src="imagens/excluir.png"' +
+                        'alt="Excluir time" title="Excluir time"></a>' + 
+                    '</td>' + 
                     "</tr>";
 
                 $("#corpo_tabela_times").append(lin);
@@ -78,6 +82,41 @@ $( document ).ready(function() {
         function erroIncluirTime(resposta) {
             alert("Deu ruim na chamada ao back-end! :(");
         }
+    
+    });
+    
+    $(document).on("click", ".excluir_time", function() {
+        // obter o ID do ícone que foi clicado
+        var componente_clicado = $(this).attr('id'); 
+        // no id do ícone, obter o ID da pessoa
+        var nome_icone = "excluir_";
+        var id_time = componente_clicado.substring(nome_icone.length);
+        // solicitar a exclusão da pessoa
+        $.ajax({
+            url: 'http://localhost:5000/excluir_time/'+id_time,
+            type: 'DELETE', // método da requisição
+            dataType: 'json', // os dados são recebidos no formato json
+            success: timeExcluido, // chama a função listar para processar o resultado
+            error: erroAoExcluir
+        });
+
+        function timeExcluido (retorno) {
+            if (retorno.resultado == "ok") { // a operação deu certo?
+                // remover da tela a linha cuja pessoa foi excluída
+                $("#linha_" + id_time).fadeOut(1000, function(){
+                    // informar resultado de sucesso
+                    alert("Time removido com sucesso!");
+                });
+            } else {
+                // informar mensagem de erro
+                alert(retorno.resultado + ":" + retorno.detalhes);
+            }            
+        }
+        function erroAoExcluir (retorno) {
+            // informar mensagem de erro
+            alert("erro ao excluir dados, verifique o backend: ");
+        }
+
     });
 
-  });
+});
