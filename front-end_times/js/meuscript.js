@@ -86,34 +86,27 @@ $( document ).ready(function() {
     });
     
     $(document).on("click", ".excluir_time", function() {
-        // obter o ID do ícone que foi clicado
         var componente_clicado = $(this).attr('id'); 
-        // no id do ícone, obter o ID da pessoa
         var nome_icone = "excluir_";
         var id_time = componente_clicado.substring(nome_icone.length);
-        // solicitar a exclusão da pessoa
         $.ajax({
             url: 'http://localhost:5000/excluir_time/'+id_time,
-            type: 'DELETE', // método da requisição
-            dataType: 'json', // os dados são recebidos no formato json
-            success: timeExcluido, // chama a função listar para processar o resultado
+            type: 'DELETE', 
+            dataType: 'json', 
+            success: timeExcluido, 
             error: erroAoExcluir
         });
 
         function timeExcluido (retorno) {
-            if (retorno.resultado == "ok") { // a operação deu certo?
-                // remover da tela a linha cuja pessoa foi excluída
+            if (retorno.resultado == "ok") { 
                 $("#linha_" + id_time).fadeOut(1000, function(){
-                    // informar resultado de sucesso
                     alert("Time removido com sucesso!");
                 });
             } else {
-                // informar mensagem de erro
                 alert(retorno.resultado + ":" + retorno.detalhes);
             }            
         }
         function erroAoExcluir (retorno) {
-            // informar mensagem de erro
             alert("erro ao excluir dados, verifique o backend: ");
         }
 
