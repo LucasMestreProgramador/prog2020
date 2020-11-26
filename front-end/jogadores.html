@@ -8,38 +8,39 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Sistema de times</title>
+    <title>Sistema de jogadores</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#times"><img src="imagens/bola.png" height="50px"></a>
+        <a class="navbar-brand" href="#jogadores"><img src="imagens/bola.png" height="50px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>   
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <span class="navbar-text">Cadastro de times de futebol</span>
-            <a class="nav-link nav-item" href="times.html">Home<span class="sr-only">(current)</span></a>
-            <a class="nav-link nav-item" href="#" id="link_listar_times">Listar</a>
+            <span class="navbar-text">Cadastro de jogadores de futebol</span>
+            <a class="nav-link nav-item" href="jogadores.html">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-link nav-item" href="#" id="link_listar_jogadores">Listar</a>
             <a class="nav-link nav-item" href="#" data-toggle="modal" data-target="#exampleModal">Incluir</a>
         </div>
     </nav>
 
     <div id="corpoDaPagina">
         <div id="conteudoInicial" class="invisible">
-            <b>Bem-vindo ao Sistema de Times!</b>
+            <b>Bem-vindo ao Sistema de Jogadores!</b>
         </div>
 
-        <table id="tabela_times" class="table invisible">
+        <table id="tabela_jogadores" class="table invisible">
             <thead>
               <tr>
                 <th scope="col">Nome</th>
-                <th scope="col">Treinador</th>
-                <th scope="col">Estádio</th>
-                <th scope="col">Capitão</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Nacionalidade</th>
+                <th scope="col">Posição</th>
+                <th scope="col">Time</th>
                 <th scope="col">Operações</th>
               </tr>
             </thead>
-            <tbody id="corpo_tabela_times">
+            <tbody id="corpo_tabela_jogadores">
                 
             </tbody>
           </table>
@@ -49,9 +50,9 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Novo Time</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Novo Jogador</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&jogadores;</span>
                   </button>
                 </div>
                 <div class="modal-body">
@@ -59,29 +60,34 @@
 
                     <div class="form-group">
                       <label for="recipient-name" class="col-form-label">Nome:</label>
-                      <input type="text" class="form-control" id="nome_time">
+                      <input type="text" class="form-control" id="nome_jogador">
                     </div>
 
                     <div class="form-group">
-                      <label for="message-text" class="col-form-label">Treinador:</label>
-                      <input type="text" class="form-control" id="treinador_time">
+                      <label for="message-text" class="col-form-label">Idade:</label>
+                      <input type="text" class="form-control" id="idade_jogador">
                     </div>
 
                     <div class="form-group">
-                      <label for="message-text" class="col-form-label">Estádio:</label>
-                      <input type="text" class="form-control" id="estadio_time">
+                      <label for="message-text" class="col-form-label">Nacionalidade:</label>
+                      <input type="text" class="form-control" id="nacionalidade_jogador">
                     </div>
 
                     <div class="form-group">
-                      <label for="message-text" class="col-form-label">Capitão:</label>
-                      <input type="text" class="form-control" id="capitao_time">
+                      <label for="message-text" class="col-form-label">Posição:</label>
+                      <input type="text" class="form-control" id="posicao_jogador">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Time:</label>
+                      <input type="text" class="form-control" id="time_jogador">
                     </div>
 
                   </form>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                  <button type="button" class="btn btn-primary" id="btn_incluir_time">Incluir</button>
+                  <button type="button" class="btn btn-primary" id="btn_incluir_jogador">Incluir</button>
                 </div>
               </div>
             </div>
