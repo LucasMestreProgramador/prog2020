@@ -22,11 +22,10 @@ class Jogador(db.Model):
             "posicao": self.posicao,
             "time_atual": self.time_atual
         }
-
+        
 
 class Contratacao(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(254))
     valor_contratacao = db.Column(db.String(254))
     duracao_contrato = db.Column(db.String(254))
     destino = db.Column(db.String(254))
@@ -35,13 +34,12 @@ class Contratacao(db.Model):
     jogador = db.relationship("Jogador")
 
     def __str__(self):
-        return f"{self.nome}, {self.valor_contratacao}, " + \
+        return f"{self.valor_contratacao}, " + \
             f"{self.duracao_contrato}, {self.destino}, {self.time_anterior}"
 
     def json(self):
         return {
             "id": self.id,
-            "nome": self.nome, 
             "valor_contratacao": self.valor_contratacao,   
             "duracao_contrato": self.duracao_contrato,
             "destino": self.destino,
@@ -82,7 +80,7 @@ class Time(db.Model):
             "estadio": self.estadio,
             "capitao": self.capitao,
             "jogador_id": self.jogador_id,
-            "jogador_contratado": self.jogador_contratado
+            "jogador_contratado": self.jogador_contratado.json()
         }
 
 
@@ -103,15 +101,15 @@ if __name__ == "__main__":
     jogador5 = Jogador(nome="Jan Oblak", idade="27", 
         nacionalidade="Eslovenia", posicao="Goleiro", time_atual="Atletico Madrid")
 
-    contratacao1 = Contratacao(nome=jogador1.nome, valor_contratacao="117 milhoes de euros", 
+    contratacao1 = Contratacao(valor_contratacao="117 milhoes de euros", 
         duracao_contrato="4 anos", destino="Juventus", time_anterior="Real Madrid", jogador=jogador1)
-    contratacao2 = Contratacao(nome=jogador2.nome, valor_contratacao="222 milhoes de euros", 
+    contratacao2 = Contratacao(valor_contratacao="222 milhoes de euros", 
         duracao_contrato="5 anos", destino="Paris Saint-Germain", time_anterior="Barcelona", jogador=jogador2)
-    contratacao3 = Contratacao(nome=jogador3.nome, valor_contratacao="Custo zero", 
+    contratacao3 = Contratacao(valor_contratacao="Custo zero", 
         duracao_contrato="4 anos", destino="Bayern Munchen", time_anterior="Borussia Dortmund", jogador=jogador3)
-    contratacao4 = Contratacao(nome=jogador4.nome, valor_contratacao="76 milhoes de euros", 
+    contratacao4 = Contratacao(valor_contratacao="76 milhoes de euros", 
         duracao_contrato="5 anos", destino="Manchester City", time_anterior="Wolfsburg", jogador=jogador4)
-    contratacao5 = Contratacao(nome=jogador5.nome, valor_contratacao="16 milhoes de euros", 
+    contratacao5 = Contratacao(valor_contratacao="16 milhoes de euros", 
         duracao_contrato="4 anos", destino="Atletico de Madrid", time_anterior="Benfica", jogador=jogador5)
 
     time1 = Time(nome="Flamengo", treinador="Rogerio Ceni", 

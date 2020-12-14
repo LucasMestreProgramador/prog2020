@@ -47,3 +47,13 @@ def listar(classe):
     resposta = jsonify(lista_jsons)
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
+
+@app.route("/listar_contratacoes")
+def listar_contratacoes():
+    contratacoes = db.session.query(Contratacao).all()
+    lista_jsons = [ x.json() for x in contratacoes ]
+    resposta = jsonify(lista_jsons)
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta
+
+app.run(debug=True)

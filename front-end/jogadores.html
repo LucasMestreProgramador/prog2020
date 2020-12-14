@@ -1,106 +1,184 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Sistema de jogadores</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#jogadores"><img src="imagens/bola.png" height="50px"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>   
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <span class="navbar-text">Cadastro de jogadores de futebol</span>
-            <a class="nav-link nav-item" href="jogadores.html">Home<span class="sr-only">(current)</span></a>
-            <a class="nav-link nav-item" href="#" id="link_listar_jogadores">Listar</a>
-            <a class="nav-link nav-item" href="#" data-toggle="modal" data-target="#exampleModal">Incluir</a>
-        </div>
-    </nav>
+</head>
 
-    <div id="corpoDaPagina">
-        <div id="conteudoInicial" class="invisible">
-            <b>Bem-vindo ao Sistema de Jogadores!</b>
-        </div>
+<body>
+    <div class="container">
 
-        <table id="tabela_jogadores" class="table invisible">
-            <thead>
-              <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Idade</th>
-                <th scope="col">Nacionalidade</th>
-                <th scope="col">Posição</th>
-                <th scope="col">Time</th>
-                <th scope="col">Operações</th>
-              </tr>
-            </thead>
-            <tbody id="corpo_tabela_jogadores">
-                
-            </tbody>
-          </table>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mt-2">
 
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Novo Jogador</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&jogadores;</span>
-                  </button>
+            <img src="imagens/bola.png" height="60px" class="navbar-brand rounded-circle">
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav mr-auto">
+                    <span class="navbar-text">Cadastro de jogadores de futebol</span>
+
+                    <a class="nav-item nav-link" href="#" id="linkInicio">Início
+                        <span class="sr-only">(current)</span></a>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" 
+                        id="navbarDropdownMenuLink" data-toggle="dropdown" 
+                        aria-haspopup="true" aria-expanded="false">
+                          Cadastros
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="#" id="link_listar_jogadores">Jogadores</a>
+                          <a class="dropdown-item" href="#">Contratações</a> 
+                          <a class="dropdown-item" href="#">Times</a>
+                        </div>
+                    </li>
+
+                    <a class="nav-item nav-link" href="#" id="link_listar_contratacoes">Lista de contratações</a>
+                    
                 </div>
-                <div class="modal-body">
-                  <form>
-
-                    <div class="form-group">
-                      <label for="recipient-name" class="col-form-label">Nome:</label>
-                      <input type="text" class="form-control" id="nome_jogador">
-                    </div>
-
-                    <div class="form-group">
-                      <label for="message-text" class="col-form-label">Idade:</label>
-                      <input type="text" class="form-control" id="idade_jogador">
-                    </div>
-
-                    <div class="form-group">
-                      <label for="message-text" class="col-form-label">Nacionalidade:</label>
-                      <input type="text" class="form-control" id="nacionalidade_jogador">
-                    </div>
-
-                    <div class="form-group">
-                      <label for="message-text" class="col-form-label">Posição:</label>
-                      <input type="text" class="form-control" id="posicao_jogador">
-                    </div>
-
-                    <div class="form-group">
-                      <label for="message-text" class="col-form-label">Time:</label>
-                      <input type="text" class="form-control" id="time_jogador">
-                    </div>
-
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                  <button type="button" class="btn btn-primary" id="btn_incluir_jogador">Incluir</button>
-                </div>
-              </div>
             </div>
-          </div>
 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+        </nav>
+
+        <div id="corpoDaPagina">
+
+            <br>
+
+            <div id="conteudoInicial">Bem vindo ao Sistema de Jogadores!</div>
+
+            <div class="modal fade" id="modalIncluirJogador" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Incluir jogador</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="campoNome">Nome</label>
+                                    <input type="text" class="form-control" id="campoNome"
+                                        aria-describedby="nomeHelp" placeholder="Nome">
+                                    <small id="nomeHelp" class="form-text text-muted">Digite o nome do jogador.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoIdade">Idade</label>
+                                    <input type="text" class="form-control" id="campoIdade"
+                                        aria-describedby="idadeHelp" placeholder="Idade">
+                                    <small id="idadeHelp" class="form-text text-muted">Digite a idade do jogador.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoNacionalidade">Nacionalidade</label>
+                                    <input type="text" class="form-control" id="campoNacionalidade"
+                                        aria-describedby="nacionalidadeHelp" placeholder="Nacionalidade">
+                                    <small id="nacionalidadeHelp" class="form-text text-muted">Digite a nacionalidade do jogador.</small>
+                                </div>
+                                <div class="form-group">
+                                  <label for="campoPosicao">Posição</label>
+                                  <input type="text" class="form-control" id="campoPosicao"
+                                      aria-describedby="posicaoHelp" placeholder="Posicao">
+                                  <small id="posicaoHelp" class="form-text text-muted">Digite a posição do jogador.</small>
+                              </div>
+                              <div class="form-group">
+                                <label for="campoTimeAtual">Time atual</label>
+                                <input type="text" class="form-control" id="campoTimeAtual"
+                                    aria-describedby="timeAtualHelp" placeholder="TimeAtual">
+                                <small id="timeAtualHelp" class="form-text text-muted">Digite o time atual do jogador.</small>
+                            </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button id="btIncluirJogador" type="button" class="btn btn-primary">Incluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" id="cadastroJogadores">
+              <br>
+                <h5>Cadastro de Jogadores</h5>
+                <br>
+
+                <a class="nav-item nav-link" data-toggle="modal" 
+                data-target="#modalIncluirJogador" href="#"><img src="imagens/incluir.png" title="Incluir jogador"></a>
+                
+                <table class="table table-striped table-hover" id="tabelaJogadores">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Idade</th>
+                            <th scope="col">Nacionalidade</th>
+                            <th scope="col">Posição</th>
+                            <th scope="col">Time atual</th>
+                            <th scope="col">Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpo_tabela_jogadores">
+                    </tbody>
+                </table>
+            </div>
+            
+            
+
+            <div class="container" id="cadastroContratacoes">
+              <br>
+                <h5>Lista de contratações</h5>
+
+                <a class="nav-item nav-link" data-toggle="modal" 
+                data-target="#modalIncluirContratacao" href="#">
+                  <img src="imagens/incluir.png" title="Incluir contratação"></a>
+                
+                <table class="table table-striped table-hover" id="tabelaContratacoes">
+                    <thead>
+                        <tr>
+                            <!-- campos da contratação -->
+                            <th scope="col">ID</th>
+                            <th scope="col">Valor da contratação</th>
+                            <th scope="col">Duração do contrato</th>
+                            <th scope="col">Destino</th>
+                            <th scope="col">Time anterior</th>
+                            <!-- campos do jogador -->
+                            <th scope="col">Nome</th>
+                            <th scope="col">Idade</th>
+                            <th scope="col">Nacionalidade</th>
+                            <th scope="col">Posição</th>
+                            <th scope="col">Time atual</th>
+                            <!-- campos do time-->
+                            <th scope="col">Nome</th>
+                            <th scope="col">Treinador</th>
+                            <th scope="col">Estádio</th>
+                            <th scope="col">Capitão</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpo_tabela_contratacoes">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </div>
 
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
     <script src="js/meuscript.js"></script>
-  </body>
+</body>
+
 </html>
